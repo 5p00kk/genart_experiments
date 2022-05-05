@@ -5,11 +5,15 @@ import cv2
 import numpy as np
 import math
 
+# Image size
 SIZE = 900
-video_FourCC = cv2.VideoWriter_fourcc(*"mp4v")
-out = cv2.VideoWriter("output.mp4",video_FourCC, 100, (SIZE,SIZE), False)
-image = np.zeros((SIZE, SIZE), np.uint8)
 
+# Video writer
+video_fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+video_writer = cv2.VideoWriter("output.mp4",video_fourcc, 100, (SIZE,SIZE), False)
+
+# Create image with text
+image = np.zeros((SIZE, SIZE), np.uint8)
 image = cv2.putText(image, "x = sin(t)+sin(2t^2)*cos(t)", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, 164, 1, cv2.LINE_AA)
 image = cv2.putText(image, "y = cos(t)+sin(t^2)", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, 164, 1, cv2.LINE_AA)
 
@@ -24,9 +28,9 @@ for t in ts:
     coord_int = (int((coord[0]/2+1)*(SIZE/2-1)), int((coord[1]/2+1)*(SIZE/2-1)))
     image[coord_int[0], coord_int[1]] = 255
     if i%150==0:
-        out.write(image)
+        video_writer.write(image)
         #cv2.imshow("test", image)
         #cv2.waitKey(1)
 
-out.release()
+video_writer.release()
 cv2.imwrite("test_0.png", image)
