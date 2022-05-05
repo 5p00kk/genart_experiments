@@ -17,20 +17,23 @@ image = np.zeros((SIZE, SIZE), np.uint8)
 image = cv2.putText(image, "x = sin(t)+sin(2t^2)*cos(t)", (20, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, 164, 1, cv2.LINE_AA)
 image = cv2.putText(image, "y = cos(t)+sin(t^2)", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, 164, 1, cv2.LINE_AA)
 
+# Create time vector
 ts = [x for x in np.arange(0,35,0.0001)]
 
-i = 0
-for t in ts:
-    i=i+1
+for i, t in enumerate(ts):
+    # Equation
     x = math.sin(t)+math.sin(2*t*t)*math.cos(t)
     y = math.cos(t)+math.sin(t*t)
+    # FP coordinates
     coord = (x, y)
+    # Convert to image coordinates (do it nicer)
     coord_int = (int((coord[0]/2+1)*(SIZE/2-1)), int((coord[1]/2+1)*(SIZE/2-1)))
+    # Update image
     image[coord_int[0], coord_int[1]] = 255
+    # Add frame to video
     if i%150==0:
         video_writer.write(image)
-        #cv2.imshow("test", image)
-        #cv2.waitKey(1)
 
+# Finish up
 video_writer.release()
-cv2.imwrite("test_0.png", image)
+cv2.imwrite("final.png", image)
