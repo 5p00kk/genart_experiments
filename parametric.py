@@ -1,9 +1,6 @@
 #shape[0] row
 #shape[1] col
 
-# Compression
-# ffmpeg -i output.mp4 -vcodec libx265 -crf 28 output_comp.mp4
-
 import cv2
 import numpy as np
 import math
