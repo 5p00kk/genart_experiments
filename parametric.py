@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import math
 from plot_functions import line_plot
+from utils import sigmoid
 
 # Execution definitions
 SIZE = 900
