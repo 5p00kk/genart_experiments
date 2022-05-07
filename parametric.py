@@ -37,5 +37,7 @@ ts = [x for x in np.arange(0, DURATION, 0.0001)]
 image_out = line_plot(ts, (X_FUNC, X_MIN, X_RANGE), (Y_FUNC, Y_MIN, Y_RANGE), image, video_writer, SHOW_IMAGE, INCREMENTAL)
 
 # Finish up
-video_writer.release()
+if SAVE_VIDEO:
+  video_writer.release()
+
 cv2.imwrite("final.png", image_out)
