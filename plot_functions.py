@@ -10,6 +10,7 @@ def img_set(image, coordinates, val):
 def line_plot(ts, x_func, y_func, image, video_writer=None, im_show = False, incremental = False):
     
     assert(image.shape[0] == image.shape[1])
+    frame_skip = 7000 if incremental else 50
     
     for i, t in enumerate(ts):
         # Equation
@@ -29,7 +30,7 @@ def line_plot(ts, x_func, y_func, image, video_writer=None, im_show = False, inc
             img_set(image, (coord_int[0], coord_int[1]), 255)
 
         # Display stuff
-        if i%7000==0:
+        if i%frame_skip==0:
             if video_writer:
                 video_writer.write(image)
             if im_show:
