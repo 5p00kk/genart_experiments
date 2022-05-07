@@ -24,7 +24,7 @@ def line_plot(ts, x_func, y_func, image, video_writer=None, im_show = False, inc
 
         # Update image
         if incremental:
-            if i > 5000: # first few lines are too strong
+            if i > 9000: # first few lines are too strong
                 img_inc(image, (coord_int[0], coord_int[1]), 5)
         else:
             img_set(image, (coord_int[0], coord_int[1]), 255)
