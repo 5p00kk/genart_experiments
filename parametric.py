@@ -6,12 +6,13 @@ import numpy as np
 import math
 from plot_functions import line_plot
 
-# Image size
+# Execution definitions
 SIZE = 900
+DURATION = 700
 INCREMENTAL = True
 SHOW_IMAGE = True
 SAVE_VIDEO = False
-DURATION = 700
+# Function definitions
 X_FUNC = lambda t: math.sin(t)+math.sin(2*t*t)*math.cos(t)
 X_MIN = -2
 X_RANGE = 4
