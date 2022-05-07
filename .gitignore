@@ -2,3 +2,4 @@
 *.png
 !samples/*.png
 *.mp4
+*.pyc
