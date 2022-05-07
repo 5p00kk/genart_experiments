@@ -1,7 +1,5 @@
 import cv2
 
-
-
 def img_inc(image, coordinates, val):
     if image[coordinates] <= 255-val:
         image[coordinates] += val
@@ -38,10 +36,3 @@ def line_plot(ts, x_func, y_func, image, video_writer=None, im_show = False, inc
                 cv2.imshow("out", image)
                 cv2.waitKey(1)
     return image
-
-
-
-
-            #if i>50000:
-        #    if image[coord_int[0], coord_int[1]] <= 255-10:
-        #        image[coord_int[0], coord_int[1]] += 5
