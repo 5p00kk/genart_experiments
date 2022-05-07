@@ -13,7 +13,11 @@ SHOW_IMAGE = True
 SAVE_VIDEO = False
 DURATION = 700
 X_FUNC = lambda t: math.sin(t)+math.sin(2*t*t)*math.cos(t)
+X_MIN = -2
+X_RANGE = 4
 Y_FUNC = lambda t: math.cos(t)+math.sin(t*t)
+Y_MIN = -2
+Y_RANGE = 4
 
 # Video writer
 video_writer = None
@@ -28,7 +32,7 @@ image = cv2.putText(image, "y = cos(t)+sin(t^2)", (20, 80), cv2.FONT_HERSHEY_SIM
 
 # Create time vector
 ts = [x for x in np.arange(0, DURATION, 0.0001)]
-image_out = line_plot(ts, X_FUNC, Y_FUNC, image, video_writer, SHOW_IMAGE, INCREMENTAL)
+image_out = line_plot(ts, (X_FUNC, X_MIN, X_RANGE), (Y_FUNC, Y_MIN, Y_RANGE), image, video_writer, SHOW_IMAGE, INCREMENTAL)
 
 # Finish up
 video_writer.release()

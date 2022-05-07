@@ -14,13 +14,15 @@ def line_plot(ts, x_func, y_func, image, video_writer=None, im_show = False, inc
     
     for i, t in enumerate(ts):
         # Equation
-        x = x_func(t)
-        y = y_func(t)
+        x = x_func[0](t)
+        y = y_func[0](t)
 
         # FP coordinates
         coord = (x, y)
-        # Convert to image coordinates (do it nicer)
-        coord_int = (int((coord[0]/2+1)*(image.shape[0]/2-1)), int((coord[1]/2+1)*(image.shape[0]/2-1)))
+        # FP coordinates (0,1)
+        coord_norm = ((coord[0]+x_func[1])/x_func[2], (coord[1]+y_func[1])/y_func[2])
+        # Image coordinates
+        coord_int = (int(coord_norm[0]*(image.shape[0]-1)), int(coord_norm[1]*(image.shape[1]-1)))
 
         # Update image
         if incremental:
