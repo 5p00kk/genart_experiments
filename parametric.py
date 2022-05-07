@@ -4,6 +4,7 @@
 import cv2
 import numpy as np
 import math
+from plot_functions import line_plot
 
 # Image size
 SIZE = 900
@@ -20,8 +21,8 @@ image = cv2.putText(image, "x = sin(t)+sin(2t^2)*cos(t)", (20, 50), cv2.FONT_HER
 image = cv2.putText(image, "y = cos(t)+sin(t^2)", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, 164, 1, cv2.LINE_AA)
 
 # Create time vector
-ts = [x for x in np.arange(0,1000,0.0001)]
-image_out = line_plot(ts, X_FUNC, Y_FUNC, image)
+ts = [x for x in np.arange(0,700,0.0001)]
+image_out = line_plot(ts, X_FUNC, Y_FUNC, image, video_writer, True, True)
 
 # Finish up
 video_writer.release()
