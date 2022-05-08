@@ -6,6 +6,7 @@ import numpy as np
 import math
 from plot_functions import line_plot
 from utils import sigmoid
+import os
 
 # Execution definitions
 SIZE = 900
@@ -21,11 +22,15 @@ Y_FUNC = lambda t: math.cos(t)+math.sin(t*t)
 Y_MIN = -2
 Y_RANGE = 4
 
+# Create output folder if it's not there
+if not os.path.exists("output"):
+  os.makedirs("output")
+
 # Video writer
 video_writer = None
 if SAVE_VIDEO:
   video_fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-  video_writer = cv2.VideoWriter("output.mp4",video_fourcc, 100, (SIZE,SIZE), False)
+  video_writer = cv2.VideoWriter("output/video.mp4",video_fourcc, 100, (SIZE,SIZE), False)
 
 # Create image with text
 image = np.zeros((SIZE, SIZE), np.uint8)
@@ -45,7 +50,7 @@ blank = np.zeros((SIZE, SIZE), np.uint8)
 merged_b = cv2.merge([image_out, blank, blank])
 merged_g = cv2.merge([blank, image_out, blank])
 merged_r = cv2.merge([blank, blank, image_out])
-cv2.imwrite("final.png", image_out)
-cv2.imwrite("final_r.png", merged_r)
-cv2.imwrite("final_g.png", merged_g)
-cv2.imwrite("final_b.png", merged_b)
+cv2.imwrite("output/final.png", image_out)
+cv2.imwrite("output/final_r.png", merged_r)
+cv2.imwrite("output/final_g.png", merged_g)
+cv2.imwrite("output/final_b.png", merged_b)
