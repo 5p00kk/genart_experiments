@@ -40,4 +40,12 @@ image_out = line_plot(ts, (X_FUNC, X_MIN, X_RANGE), (Y_FUNC, Y_MIN, Y_RANGE), im
 if SAVE_VIDEO:
   video_writer.release()
 
+# Save final images
+blank = np.zeros((SIZE, SIZE), np.uint8)
+merged_b = cv2.merge([image_out, blank, blank])
+merged_g = cv2.merge([blank, image_out, blank])
+merged_r = cv2.merge([blank, blank, image_out])
 cv2.imwrite("final.png", image_out)
+cv2.imwrite("final_r.png", merged_r)
+cv2.imwrite("final_g.png", merged_g)
+cv2.imwrite("final_b.png", merged_b)
