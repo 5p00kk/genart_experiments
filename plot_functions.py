@@ -20,7 +20,10 @@ def line_plot(ts, x_func, y_func, image, video_writer=None, im_show = False, inc
         # FP coordinates
         coord = (x, y)
         # FP coordinates (0,1)
-        coord_norm = ((coord[0]+x_func[1])/x_func[2], (coord[1]+y_func[1])/y_func[2])
+        coord_norm = ((coord[0]-x_func[1])/x_func[2], (coord[1]-y_func[1])/y_func[2])
+        # Make sure normalization went well
+        assert(coord_norm[0]<=1 and coord_norm[0]>0)
+        assert(coord_norm[1]<=1 and coord_norm[1]>0)
         # Image coordinates
         coord_int = (int(coord_norm[0]*(image.shape[0]-1)), int(coord_norm[1]*(image.shape[1]-1)))
 
