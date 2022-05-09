@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-ffmpeg -i output.mp4 -vcodec libx265 -crf 28 output_comp.mp4
+ffmpeg -i video.mp4 -vcodec libx265 -crf 28 video_comp.mp4
