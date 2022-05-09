@@ -10,7 +10,7 @@ import os
 
 # Execution definitions
 SIZE = 900
-DURATION = 700
+STEP = 0.0001
 INCREMENTAL = True
 SHOW_IMAGE = True
 SAVE_VIDEO = False
@@ -41,7 +41,7 @@ image = cv2.putText(image, "x = sin(t)+sin(2t^2)*cos(t)", (20, 50), cv2.FONT_HER
 image = cv2.putText(image, "y = cos(t)+sin(t^2)", (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, 164, 1, cv2.LINE_AA)
 
 # Create time vector
-ts = [x for x in np.arange(0, DURATION, 0.0001)]
+ts = [x for x in np.arange(0, DURATION, STEP)]
 image_out = line_plot(ts, (X_FUNC, X_MIN, X_RANGE), (Y_FUNC, Y_MIN, Y_RANGE), image, video_writer, SHOW_IMAGE, INCREMENTAL)
 
 # Finish up
