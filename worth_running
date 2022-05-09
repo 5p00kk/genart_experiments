@@ -19,4 +19,22 @@ Y_RANGE = 4
 
 ##########################################################################
 
+# Execution definitions
+SIZE = 900
+DURATION = 40000
+STEP = 0.01
+INCREMENTAL = True
+SHOW_IMAGE = True
+SAVE_VIDEO = False
+SAVE_HSV = False
+H = 133
+S = 255
+# Function definitions
+X_FUNC = lambda t: 7*math.cos(0.222*t)*(math.sin(0.56*t)/(1+2**(math.cos(2.02*t)**2)))
+X_MIN = -4
+X_RANGE = 8
+Y_FUNC = lambda t: 7*(math.sin(0.56*t)/(1+math.sin(1.02*t)**2))
+Y_MIN = -9
+Y_RANGE = 18
+
 ##########################################################################
