@@ -14,6 +14,9 @@ DURATION = 700
 INCREMENTAL = True
 SHOW_IMAGE = True
 SAVE_VIDEO = False
+SAVE_HSV = False
+H = 133
+S = 255
 # Function definitions
 X_FUNC = lambda t: math.sin(t)+math.sin(2*t*t)*math.cos(t)
 X_MIN = -2
@@ -50,7 +53,16 @@ blank = np.zeros((SIZE, SIZE), np.uint8)
 merged_b = cv2.merge([image_out, blank, blank])
 merged_g = cv2.merge([blank, image_out, blank])
 merged_r = cv2.merge([blank, blank, image_out])
+# Prepare HSV
+if SAVE_HSV:
+  h = H*np.ones((SIZE, SIZE), np.uint8)
+  s = S*np.ones((SIZE, SIZE), np.uint8)
+  merged_hsv = cv2.merge([h, s, image_out])
+  merged_hsv = cv2.cvtColor(merged_hsv, cv2.COLOR_HSV2BGR)
+
 cv2.imwrite("output/final.png", image_out)
 cv2.imwrite("output/final_r.png", merged_r)
 cv2.imwrite("output/final_g.png", merged_g)
 cv2.imwrite("output/final_b.png", merged_b)
+if SAVE_HSV:
+  cv2.imwrite("output/final_hsv.png", merged_hsv)
