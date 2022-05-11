@@ -2,6 +2,8 @@
 sandbox for genart expeirments
 
 ## parametric.py
+<img src="./samples/sample_2.png"  width="700" height="500">
+
 Draws plot of a parametric function.
 ```
 x = f(t)
@@ -40,5 +42,4 @@ Some interesting plots can be generated using parameter settings in worth_runnin
 
 ![sample_0](./samples/sample_0.png)
 ![sample_1](./samples/sample_1.png)
-![sample_2](./samples/sample_2.png)
 ![sample_3](./samples/sample_3.png)
