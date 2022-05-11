@@ -34,7 +34,7 @@ if not os.path.exists("output"):
 video_writer = None
 if SAVE_VIDEO:
   video_fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-  video_writer = cv2.VideoWriter("output/video.mp4",video_fourcc, 100, (SIZE,SIZE), False)
+  video_writer = cv2.VideoWriter("output/video.mp4",video_fourcc, 60, (SIZE,SIZE), False)
 
 # Create image with text
 image = np.zeros((SIZE, SIZE), np.uint8)
