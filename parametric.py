@@ -10,6 +10,7 @@ import os
 
 # Execution definitions
 SIZE = 900
+DURATION = 700
 STEP = 0.0001
 INCREMENTAL = True
 SHOW_IMAGE = True
