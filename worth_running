@@ -1,5 +1,15 @@
 ##########################################################################
 
+# Execution definitions
+SIZE = 900
+DURATION = 700
+STEP = 0.0001
+INCREMENTAL = True
+SHOW_IMAGE = True
+SAVE_VIDEO = False
+SAVE_HSV = False
+H = 133
+S = 255
 # Function definitions
 X_FUNC = lambda t: math.sin(t)+math.sin(2*t*t)*math.cos(t)
 X_MIN = -2
@@ -10,6 +20,17 @@ Y_RANGE = 4
 
 ##########################################################################
 
+# Execution definitions
+SIZE = 900
+DURATION = 700
+STEP = 0.0001
+INCREMENTAL = True
+SHOW_IMAGE = True
+SAVE_VIDEO = False
+SAVE_HSV = False
+H = 133
+S = 255
+# Function definitions
 X_FUNC = lambda t: math.sin(t*t)+math.sin(3*t*t)*math.cos(t*t+0.2)
 X_MIN = -2
 X_RANGE = 4
@@ -38,8 +59,6 @@ Y_MIN = -9
 Y_RANGE = 18
 
 ##########################################################################
-
-
 
 # Execution definitions
 SIZE = 900
