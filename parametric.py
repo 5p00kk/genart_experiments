@@ -1,6 +1,3 @@
-#shape[0] row
-#shape[1] col
-
 import cv2
 import numpy as np
 import math
