@@ -2,7 +2,7 @@
 sandbox for genart expeirments
 
 ## parametric.py
-<img src="./samples/sample_2.png"  width="700" height="500">
+![sample_2](./samples/sample_0.png)
 
 Draws plot of a parametric function.
 ```
